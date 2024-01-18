@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  accessToken?: string;
+  accessToken = new BehaviorSubject<string | null>(null);
   username?: string;
 
   getAccessTokenUrl() {
@@ -15,13 +16,9 @@ export class AuthService {
 
   getAccessToken() {
     const url = window.location.hash.substring(1);
-    console.log(
-      '🚀 ~ file: auth.service.ts:17 ~ AuthService ~ getAccessToken ~ url:',
-      url
-    );
-    this.accessToken =
-      new URLSearchParams(url).get('access_token') ?? undefined;
+    const token = new URLSearchParams(url).get('access_token') ?? undefined;
     this.username =
       new URLSearchParams(url).get('account_username') ?? undefined;
+    if (token) this.accessToken.next(token);
   }
 }
