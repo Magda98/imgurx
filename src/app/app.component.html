@@ -1,4 +1,16 @@
-<button (click)="login()">login</button>
-<button (click)="getUserData()">get data</button>
-
-<router-outlet></router-outlet>
+<div class="layout">
+  <nav class="menu">
+    <ng-container *ngIf="!isLoggedIn">
+      <button class="btn" (click)="login()">login</button>
+    </ng-container>
+    <div class="user-data" *ngIf="isLoggedIn">
+      <img referrerpolicy="no-referrer" width="50" height="50" [src]="userData?.avatar" alt="user avatar">
+      <a class="user-data__username" target="_blank" [href]="'https://imgur.com/user/'+userData?.url">
+        {{username}}
+      </a>
+    </div>
+  </nav>
+  <main class="main-container">
+    <router-outlet></router-outlet>
+  </main>
+</div>

@@ -1,5 +1,6 @@
+import { StorageService } from './storage.service';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -7,6 +8,25 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
   accessToken = new BehaviorSubject<string | null>(null);
   username?: string;
+  private readonly tokenStorageKey = 'token';
+  private readonly usernameStorageKey = 'username';
+
+  constructor(private storage: StorageService) {
+    const token = this.storage.getData(this.tokenStorageKey);
+    const username = this.storage.getData(this.usernameStorageKey);
+    this.username = username;
+    this.accessToken.next(token);
+  }
+
+  keepUpToDateAccessToekn() {
+    return this.accessToken.asObservable().pipe(
+      tap((token) => {
+        if (token) {
+          this.storage.setData(this.tokenStorageKey, token);
+        }
+      })
+    );
+  }
 
   getAccessTokenUrl() {
     const client_id = '0c51d5eb5413529';
@@ -19,6 +39,7 @@ export class AuthService {
     const token = new URLSearchParams(url).get('access_token') ?? undefined;
     this.username =
       new URLSearchParams(url).get('account_username') ?? undefined;
+    this.storage.setData(this.usernameStorageKey, this.username);
     if (token) this.accessToken.next(token);
   }
 }

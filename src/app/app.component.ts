@@ -1,21 +1,26 @@
 import { UserService } from './../services/user.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnDestroy, OnInit, SecurityContext } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Subscription } from 'rxjs';
+import { UserData } from './interfaces/interfaces';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HttpClientModule],
+  imports: [CommonModule, RouterOutlet, HttpClientModule, NgOptimizedImage],
   providers: [UserService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
+  isLoggedIn = false;
+  userData?: UserData;
+  username?: string;
 
   constructor(
     private authService: AuthService,
@@ -24,6 +29,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getUserData();
+    this.subscription.add(
+      this.authService.keepUpToDateAccessToekn().subscribe()
+    );
   }
 
   ngOnDestroy(): void {
@@ -31,13 +39,13 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   getUserData() {
-    if (this.authService.username)
+    this.username = this.authService.username;
+    if (this.username)
       this.subscription.add(
-        this.userService
-          .getUserData(this.authService.username)
-          .subscribe((data) => {
-            console.log(data);
-          })
+        this.userService.getUserData(this.username).subscribe((res) => {
+          this.userData = res.data;
+          this.isLoggedIn = true;
+        })
       );
   }
 
