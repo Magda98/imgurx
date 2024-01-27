@@ -4,6 +4,11 @@ import { GalleryComponent } from './gallery/gallery.component';
 
 export const routes: Routes = [
   {
+    path: '',
+    pathMatch: 'prefix',
+    redirectTo: 'gallery',
+  },
+  {
     path: 'login',
     component: LoginComponent,
   },

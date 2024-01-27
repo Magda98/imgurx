@@ -15,3 +15,7 @@ export interface UserData {
   };
   is_blocked: boolean;
 }
+
+export interface Image {
+  link: string;
+}

@@ -1,17 +1,23 @@
 import { UserService } from './../services/user.service';
-import { Component, OnDestroy, OnInit, SecurityContext } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { UserData } from './interfaces/interfaces';
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { AngularQueryDevtools } from '@tanstack/angular-query-devtools-experimental';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HttpClientModule, NgOptimizedImage],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    HttpClientModule,
+    NgOptimizedImage,
+    AngularQueryDevtools,
+  ],
   providers: [UserService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
