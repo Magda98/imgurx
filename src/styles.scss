@@ -1,9 +1,7 @@
 html,
 body {
   margin: 0;
-  height: 100dvh;
   width: 100%;
-  overflow: hidden;
 }
 
 * {
@@ -21,6 +19,7 @@ html {
 
   --gray-100: oklch(95.9% 0.015 304.04);
   --gray-900: oklch(19.37% 0.006 300.98);
+  --gray-800: oklch(26.86% 0 0);
   --gray-700: oklch(36.98% 0.014 302.71);
   --gray-400: oklch(70.9% 0.015 304.04);
 
@@ -43,6 +42,34 @@ html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--gray-100);
+  position: relative;
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray-400) var(--gray-700);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--gray-700);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--gray-400);
+  border-radius: 20px;
+  border: 3px solid var(--gray-700);
+}
+
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 h1 {
