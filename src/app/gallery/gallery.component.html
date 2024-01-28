@@ -1,17 +1,22 @@
-<button class="btn" (click)="nextPage()">next</button>
-<button class="btn" (click)="prevPage()">prev</button>
+<div class="mx-gallery">
+  @if(images.isPending()){
+  <app-spinner class="mx-gallery__spinner" />
+  }
+  @else if(images.isError()){
+  <app-loading-error (reloadData)="reloadData()" />
 
-@if(images.isPending()){
-<p>ładowanie
-</p>
-}
-@else if(images.isError()){
-<p>
-  error
-</p>
-}
-@else if(images.isSuccess()) {
-@for(image of images.data().data; track image.link){
-<img width="100" height="100" referrerpolicy="no-referrer" [src]="image.link">
-}
-}
+  }
+  @else if(images.isSuccess()) {
+  <div class="mx-gallery__images">
+    @for(image of images.data().data; track image.link){
+    <div class="mx-gallery__image-wrapper">
+      <img priority class="mx-gallery__image" fill referrerpolicy="no-referrer" [ngSrc]="image.link">
+    </div>
+    }
+  </div>
+  <button class="btn mx-gallery__btn mx-gallery__btn--next" (click)="nextPage()">next</button>
+  @if(page() > 1){
+  <button class="btn mx-gallery__btn mx-gallery__btn--prev" (click)="prevPage()">prev</button>
+  }
+  }
+</div>
