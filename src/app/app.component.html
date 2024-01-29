@@ -1,10 +1,16 @@
 <div class="layout">
-  <nav class="menu">
+  <button class="btn menu-button" (click)="isMenuOpen=!isMenuOpen">
+    <app-icon type="menu"></app-icon>
+  </button>
+  <nav class="menu" [ngClass]="{
+    'menu--collapsed': !isMenuOpen
+  }">
     <ng-container *ngIf="!isLoggedIn">
-      <button class="btn" (click)="login()">login</button>
+      <button type="button" class="btn" (click)="login()">login</button>
     </ng-container>
     <div class="user-data" *ngIf="isLoggedIn">
-      <img referrerpolicy="no-referrer" width="50" height="50" [src]="userData?.avatar" alt="user avatar">
+      <img class="user-data__image" referrerpolicy="no-referrer" width="50" height="50" [src]="userData?.avatar"
+        alt="user avatar">
       <a class="user-data__username" target="_blank" [href]="'https://imgur.com/user/'+userData?.url">
         {{username}}
       </a>

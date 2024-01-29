@@ -1,6 +1,7 @@
 .layout {
   width: 100%;
   display: flex;
+  position: relative;
 }
 
 .main-container {
@@ -9,25 +10,66 @@
   flex: 8;
   padding: 16px;
 
+  @media (min-width: 768px) {
+    padding: 32px;
+  }
 }
 
 .menu {
-  position: sticky;
+  position: fixed;
   top: 0;
+  bottom: 0;
   width: 100%;
   flex: 2;
-  min-width: 150px;
+  max-width: var(--menu-max-width);
   background-color: var(--gray-800);
-  padding: 16px;
-  min-height: 100dvh;
+  height: 100dvh;
+  display: block;
+  transition: max-width 0.3s;
+  z-index: 1;
+
+  &--collapsed {
+    max-width: 0;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    position: sticky;
+
+    &--collapsed {
+      max-width: var(--menu-max-width);
+      overflow: visible;
+    }
+  }
 }
 
 .user-data {
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-top: 64px;
+  padding: 16px;
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+  }
 }
 
 .user-data__username {
   font-weight: 600;
+}
+
+.user-data__image {
+  border-radius: 8px;
+}
+
+.menu-button {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
