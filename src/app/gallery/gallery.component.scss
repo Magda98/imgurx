@@ -60,6 +60,10 @@
   }
 
   &--prev {
-    left: calc(var(--menu-max-width) + 4px);
+    left: 4px;
+
+    @media (min-width: 768px) {
+      left: calc(var(--menu-max-width) + 4px);
+    }
   }
 }
