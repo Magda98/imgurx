@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { UserData } from './interfaces/interfaces';
 import { AngularQueryDevtools } from '@tanstack/angular-query-devtools-experimental';
+import { IconComponent } from './icon/icon.component';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import { AngularQueryDevtools } from '@tanstack/angular-query-devtools-experimen
     HttpClientModule,
     NgOptimizedImage,
     AngularQueryDevtools,
+    IconComponent,
   ],
   providers: [UserService],
   templateUrl: './app.component.html',
@@ -27,6 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
   isLoggedIn = false;
   userData?: UserData;
   username?: string;
+  isMenuOpen = false;
 
   constructor(
     private authService: AuthService,

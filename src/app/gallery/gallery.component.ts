@@ -5,6 +5,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 import { SpinnerComponent } from '../spinner/spinner.component';
 import { LoadingErrorComponent } from '../loading-error/loading-error.component';
+import { IconComponent } from '../icon/icon.component';
 
 @Component({
   selector: 'app-gallery',
@@ -15,6 +16,7 @@ import { LoadingErrorComponent } from '../loading-error/loading-error.component'
     NgOptimizedImage,
     SpinnerComponent,
     LoadingErrorComponent,
+    IconComponent,
   ],
   providers: [ImagesService],
   standalone: true,

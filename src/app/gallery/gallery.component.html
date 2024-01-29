@@ -14,9 +14,12 @@
     </div>
     }
   </div>
-  <button class="btn mx-gallery__btn mx-gallery__btn--next" (click)="nextPage()">next</button>
+  <button class="btn mx-gallery__btn mx-gallery__btn--next" (click)="nextPage()">
+    <app-icon type="chevronRight"></app-icon>
+  </button>
   @if(page() > 1){
-  <button class="btn mx-gallery__btn mx-gallery__btn--prev" (click)="prevPage()">prev</button>
+  <button class="btn mx-gallery__btn mx-gallery__btn--prev" (click)="prevPage()"><app-icon
+      type="chevronLeft"></app-icon></button>
   }
   }
 </div>
