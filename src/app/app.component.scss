@@ -27,14 +27,17 @@
   display: block;
   transition: max-width 0.3s;
   z-index: 1;
+  box-shadow: 8px 0px 24px 0px rgb(20, 20, 20);
 
   &--collapsed {
     max-width: 0;
     overflow: hidden;
+    box-shadow: none;
   }
 
   @media (min-width: 768px) {
     position: sticky;
+    box-shadow: none;
 
     &--collapsed {
       max-width: var(--menu-max-width);
