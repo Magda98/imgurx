@@ -3,7 +3,7 @@ import { Icons, icons } from './../icons';
 import { Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'app-icon',
+  selector: 'mx-icon',
   template: `<span class="icon" [outerHTML]="icon"></span>`,
   styleUrls: ['./icon.component.scss'],
   host: { class: 'app-icon' },

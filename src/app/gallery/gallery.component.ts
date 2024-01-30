@@ -8,7 +8,7 @@ import { LoadingErrorComponent } from '../loading-error/loading-error.component'
 import { IconComponent } from '../icon/icon.component';
 
 @Component({
-  selector: 'app-gallery',
+  selector: 'mx-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.scss'],
   imports: [

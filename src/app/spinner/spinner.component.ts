@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-spinner',
+  selector: 'mx-spinner',
   template: `<span class="loader"></span>`,
   styleUrls: ['./spinner.component.scss'],
   standalone: true,
