@@ -11,7 +11,7 @@
   <div class="mx-gallery__images">
     @for(image of images.data().data; track image.link){
     <div class="mx-gallery__image-wrapper">
-      <img priority class="mx-gallery__image" fill referrerpolicy="no-referrer" [ngSrc]="image.link">
+      <img loading="lazy" class="mx-gallery__image" fill referrerpolicy="no-referrer" [ngSrc]="image.link">
     </div>
     }
   </div>
