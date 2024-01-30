@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ImagesService } from './../../services/images.service';
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 import { SpinnerComponent } from '../spinner/spinner.component';
@@ -23,8 +23,14 @@ import { IconComponent } from '../icon/icon.component';
 })
 export class GalleryComponent {
   page = signal(1);
+  readonly pageSize = 50;
   imagesService = inject(ImagesService);
   images = injectQuery(() => this.imagesService.getUserImages(this.page));
+  public imagesCount = injectQuery(() => this.imagesService.getImagesCount());
+  public maxPage = computed(() => {
+    const data = this.imagesCount.data()?.data;
+    return data ? Math.ceil(data / this.pageSize) : 0;
+  });
 
   reloadData() {
     this.images.refetch();

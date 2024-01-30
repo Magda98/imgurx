@@ -16,4 +16,11 @@ export class ImagesService {
       this.#http.get<ApiResponse<Image[]>>(`/account/me/images/${page()}`)
     );
   }
+
+  getImagesCount() {
+    return createQuery(
+      ['imagesCount'] as const,
+      this.#http.get<ApiResponse<number>>(`/account/me/images/count`)
+    );
+  }
 }
