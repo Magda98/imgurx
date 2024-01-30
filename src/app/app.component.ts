@@ -1,11 +1,11 @@
-import { UserService } from './../services/user.service';
+import { UserService } from './shared/services/user.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from './shared/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Subscription } from 'rxjs';
-import { UserData } from './interfaces/interfaces';
+import { UserData } from './shared/interfaces/interfaces';
 import { AngularQueryDevtools } from '@tanstack/angular-query-devtools-experimental';
 import { IconComponent } from './icon/icon.component';
 

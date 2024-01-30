@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Signal, inject } from '@angular/core';
-import { ApiResponse } from '../app/interfaces/response';
-import { Image } from '../app/interfaces/interfaces';
-import { createQuery } from '../app/utils/createQuery';
+import { ApiResponse } from '../interfaces/response';
+import { Image } from '../interfaces/interfaces';
+import { createQuery } from '../utils/createQuery';
 
 @Injectable({
   providedIn: 'root',

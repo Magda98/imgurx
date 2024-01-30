@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserData } from '../app/interfaces/interfaces';
-import { ApiResponse } from '../app/interfaces/response';
+import { UserData } from '../interfaces/interfaces';
+import { ApiResponse } from '../interfaces/response';
 
 @Injectable()
 export class UserService {

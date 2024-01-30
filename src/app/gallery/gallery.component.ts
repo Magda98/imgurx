@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { ImagesService } from './../../services/images.service';
+import { ImagesService } from '../shared/services/images.service';
 import { Component, computed, inject, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { injectQuery } from '@tanstack/angular-query-experimental';
