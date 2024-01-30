@@ -22,14 +22,20 @@ import { IconComponent } from '../icon/icon.component';
   standalone: true,
 })
 export class GalleryComponent {
-  page = signal(1);
+  page = signal(0);
   readonly pageSize = 50;
   imagesService = inject(ImagesService);
   images = injectQuery(() => this.imagesService.getUserImages(this.page));
   public imagesCount = injectQuery(() => this.imagesService.getImagesCount());
   public maxPage = computed(() => {
     const data = this.imagesCount.data()?.data;
-    return data ? Math.ceil(data / this.pageSize) : 0;
+    return data ? Math.ceil(data / this.pageSize) - 1 : 0;
+  });
+  public imagesCounter = computed(() => {
+    const currentPageSize = this.images.data()?.data.length;
+    return currentPageSize
+      ? this.page() * this.pageSize + currentPageSize
+      : this.page() * this.pageSize;
   });
 
   reloadData() {

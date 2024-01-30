@@ -1,5 +1,5 @@
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { Icons, icons } from './../icons';
+import { Icons, icons } from '../shared/utils/icons';
 import { Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
 
 @Component({

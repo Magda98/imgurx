@@ -7,7 +7,7 @@
 
   }
   @else if(images.isSuccess()) {
-  <p class="mx-gallery__count">{{page() * pageSize}} / {{imagesCount.data()?.data}}</p>
+  <p class="mx-gallery__count">{{imagesCounter()}} / {{imagesCount.data()?.data}}</p>
   <div class="mx-gallery__images">
     @for(image of images.data().data; track image.link){
     <div class="mx-gallery__image-wrapper">
@@ -15,12 +15,13 @@
     </div>
     }
   </div>
-  <button class="btn mx-gallery__btn mx-gallery__btn--next" (click)="nextPage()">
+  @if(page() < maxPage()){ <button class="btn mx-gallery__btn mx-gallery__btn--next" (click)="nextPage()">
     <mx-icon type="chevronRight"></mx-icon>
-  </button>
-  @if(page() > 1){
-  <button class="btn mx-gallery__btn mx-gallery__btn--prev" (click)="prevPage()"><mx-icon
-      type="chevronLeft"></mx-icon></button>
-  }
-  }
+    </button>
+    }
+    @if(page() > 0){
+    <button class="btn mx-gallery__btn mx-gallery__btn--prev" (click)="prevPage()"><mx-icon
+        type="chevronLeft"></mx-icon></button>
+    }
+    }
 </div>
