@@ -1,0 +1,5 @@
+@if(albums.isSuccess()){
+@for(album of albums.data().data; track album.id){
+<p>{{album.title}}</p>
+}
+}
