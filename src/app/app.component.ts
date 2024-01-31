@@ -1,7 +1,7 @@
 import { UserService } from './shared/services/user.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { AuthService } from './shared/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Subscription } from 'rxjs';
@@ -19,6 +19,7 @@ import { IconComponent } from './icon/icon.component';
     NgOptimizedImage,
     AngularQueryDevtools,
     IconComponent,
+    RouterModule,
   ],
   providers: [UserService],
   templateUrl: './app.component.html',

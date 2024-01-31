@@ -15,6 +15,14 @@
         {{username}}
       </a>
     </div>
+    <div>
+      <ul class="mx-menu">
+        <li class="mx-menu__item"><a class="btn btn--text" [routerLink]="['/gallery']"
+            routerLinkActive="router-link-active">gallery</a></li>
+        <li class="mx-menu__item"><a class="btn btn--text" [routerLink]="['/albums']"
+            routerLinkActive=" router-link-active">albums</a></li>
+      </ul>
+    </div>
   </nav>
   <main class="main-container">
     <router-outlet></router-outlet>
