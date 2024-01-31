@@ -3,7 +3,6 @@ import { Injectable, Signal, inject } from '@angular/core';
 import { ApiResponse } from '../interfaces/response';
 import { Album, Image } from '../interfaces/interfaces';
 import { createQuery } from '../utils/createQuery';
-import { UserService } from './user.service';
 import { AuthService } from './auth.service';
 
 @Injectable({
