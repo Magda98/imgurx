@@ -1,0 +1,12 @@
+<div class="mx-query-state">
+  @if(query.isPending()){
+  <mx-spinner class="mx-query-sate__spinner" />
+  }
+  @else if(query.isError()){
+  <mx-loading-error (reloadData)="reloadData.emit()" />
+
+  }
+  @else if(query.isSuccess()) {
+  <ng-content></ng-content>
+  }
+</div>
