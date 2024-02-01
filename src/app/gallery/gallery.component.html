@@ -1,15 +1,7 @@
-<div class="mx-gallery">
-  @if(images.isPending()){
-  <mx-spinner class="mx-gallery__spinner" />
-  }
-  @else if(images.isError()){
-  <mx-loading-error (reloadData)="reloadData()" />
-
-  }
-  @else if(images.isSuccess()) {
+<mx-query-state (reloadData)="reloadData()" [query]="images">
   <p class="mx-gallery__count">{{imagesCounter()}} / {{imagesCount.data()?.data}}</p>
   <div class="mx-gallery__images">
-    @for(image of images.data().data; track image.link){
+    @for(image of images.data()?.data; track image.link){
     <div class="mx-gallery__image-wrapper">
       <img loading="lazy" class="mx-gallery__image" fill referrerpolicy="no-referrer" [ngSrc]="image.link">
     </div>
@@ -23,5 +15,4 @@
     <button class="btn mx-gallery__btn mx-gallery__btn--prev" (click)="prevPage()"><mx-icon
         type="chevronLeft"></mx-icon></button>
     }
-    }
-</div>
+</mx-query-state>
