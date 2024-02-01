@@ -5,7 +5,9 @@
 }
 
 .main-container {
-  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   flex: 8;
   padding: 16px;
