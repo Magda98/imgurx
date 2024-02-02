@@ -1,5 +1,13 @@
 <mx-query-state [query]="albums">
-  @for(album of albums.data()?.data; track album.id){
-  <p>{{album.title}}</p>
-  }
+  <div class="mx-albums">
+    @for(album of albums.data()?.data; track album.id){
+    <div class="mx-albums__album">
+      <div class="mx-albums__album-cover">
+        <img loading="lazy" class="mx-albums__image" fill referrerpolicy="no-referrer"
+          [ngSrc]="'https://i.imgur.com/'+album.cover+'_d.jpg?maxwidth=520&amp;shape=thumb&amp;fidelity=high&amp;v=1'">
+      </div>
+      <p class="mx-albums__title">{{album.title}}</p>
+    </div>
+    }
+  </div>
 </mx-query-state>

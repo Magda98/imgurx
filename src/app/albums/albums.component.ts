@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { ImagesService } from '../shared/services/images.service';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 import { QueryStateComponent } from '../query-state/query-state.component';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'mx-albums',
@@ -9,7 +10,7 @@ import { QueryStateComponent } from '../query-state/query-state.component';
   styleUrls: ['./albums.component.scss'],
   providers: [ImagesService],
   standalone: true,
-  imports: [QueryStateComponent],
+  imports: [QueryStateComponent, NgOptimizedImage],
 })
 export class AlbumsComponent {
   imagesService = inject(ImagesService);
