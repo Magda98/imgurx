@@ -38,6 +38,7 @@ export class GalleryComponent {
   page = signal(0);
   readonly pageSize = 50;
   imagesService = inject(ImagesService);
+  ngGallery = inject(Gallery);
   images = injectQuery(() => this.imagesService.getUserImages(this.page));
   public imagesCount = injectQuery(() => this.imagesService.getImagesCount());
   public maxPage = computed(() => {
@@ -60,10 +61,8 @@ export class GalleryComponent {
   });
 
   galleryEffect = effect(() => {
-    this.gallery.ref().load(this.items());
+    this.ngGallery.ref().load(this.items());
   });
-
-  constructor(public gallery: Gallery) {}
 
   reloadData() {
     this.images.refetch();
