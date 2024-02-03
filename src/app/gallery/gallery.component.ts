@@ -1,12 +1,22 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ImagesService } from '../shared/services/images.service';
-import { Component, computed, inject, signal } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Signal,
+  computed,
+  effect,
+  inject,
+  signal,
+} from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 import { SpinnerComponent } from '../spinner/spinner.component';
 import { LoadingErrorComponent } from '../loading-error/loading-error.component';
 import { IconComponent } from '../icon/icon.component';
 import { QueryStateComponent } from '../query-state/query-state.component';
+import { Gallery, GalleryItem, ImageItem } from 'ng-gallery';
+import { LightboxDirective } from 'ng-gallery/lightbox';
 
 @Component({
   selector: 'mx-gallery',
@@ -19,6 +29,7 @@ import { QueryStateComponent } from '../query-state/query-state.component';
     LoadingErrorComponent,
     IconComponent,
     QueryStateComponent,
+    LightboxDirective,
   ],
   providers: [ImagesService],
   standalone: true,
@@ -39,6 +50,20 @@ export class GalleryComponent {
       ? this.page() * this.pageSize + currentPageSize
       : this.page() * this.pageSize;
   });
+
+  items: Signal<GalleryItem[]> = computed(() => {
+    const images = this.images.data()?.data;
+    if (!images) return [];
+    return images.map(
+      (item) => new ImageItem({ src: item.link, thumb: item.link })
+    );
+  });
+
+  galleryEffect = effect(() => {
+    this.gallery.ref().load(this.items());
+  });
+
+  constructor(public gallery: Gallery) {}
 
   reloadData() {
     this.images.refetch();

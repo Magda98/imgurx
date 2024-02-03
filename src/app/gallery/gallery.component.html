@@ -1,9 +1,10 @@
 <mx-query-state (reloadData)="reloadData()" [query]="images">
   <p class="mx-gallery__count">{{imagesCounter()}} / {{imagesCount.data()?.data}}</p>
   <div class="mx-gallery__images">
-    @for(image of images.data()?.data; track image.link){
+    @for(image of images.data()?.data; track image.link; let idx = $index){
     <div class="mx-gallery__image-wrapper">
-      <img loading="lazy" class="mx-gallery__image" fill referrerpolicy="no-referrer" [ngSrc]="image.link">
+      <img priority="" [lightbox]="idx" class="mx-gallery__image" fill referrerpolicy="no-referrer"
+        [ngSrc]="image.link">
     </div>
     }
   </div>
