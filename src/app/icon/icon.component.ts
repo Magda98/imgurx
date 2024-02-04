@@ -1,13 +1,12 @@
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Icons, icons } from '../shared/utils/icons';
-import { Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'mx-icon',
   template: `<span class="icon" [outerHTML]="icon"></span>`,
   styleUrls: ['./icon.component.scss'],
   host: { class: 'app-icon' },
-  encapsulation: ViewEncapsulation.None,
   standalone: true,
 })
 export class IconComponent implements OnChanges {
