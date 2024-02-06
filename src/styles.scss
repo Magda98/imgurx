@@ -160,3 +160,20 @@ mx-gallery,
 mx-quey-state {
   width: 100%;
 }
+
+.app-icon {
+  display: flex;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    color: #fff;
+  }
+
+  &.icon--large {
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}

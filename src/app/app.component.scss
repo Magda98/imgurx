@@ -22,7 +22,7 @@
   top: 0;
   bottom: 0;
   width: 100%;
-  flex: 2;
+  flex: 0;
   max-width: var(--menu-max-width);
   background-color: var(--gray-800);
   height: 100dvh;
@@ -40,6 +40,7 @@
   @media (min-width: 768px) {
     position: sticky;
     box-shadow: none;
+    flex: 2;
 
     &--collapsed {
       max-width: var(--menu-max-width);
@@ -59,13 +60,15 @@
   list-style-type: none;
 }
 
+.menu__items-wrapper {
+  padding: 16px;
+}
 
 .user-data {
   display: flex;
   align-items: center;
   gap: 16px;
   margin-top: 64px;
-  padding: 16px;
 
   @media (min-width: 768px) {
     margin-top: 0;
