@@ -75,4 +75,12 @@ export class GalleryComponent {
   prevPage() {
     this.page.update((v) => v - 1);
   }
+
+  /**
+   * TODO:
+   * show: images views, description, title, name, tags,
+   * handle add to favorites,
+   * add alt,
+   * show add date,
+   */
 }
