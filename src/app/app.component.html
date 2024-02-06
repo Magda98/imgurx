@@ -5,23 +5,27 @@
   <nav class="menu" [ngClass]="{
     'menu--collapsed': !isMenuOpen
   }">
-    <ng-container *ngIf="!isLoggedIn">
-      <button type="button" class="btn" (click)="login()">login</button>
-    </ng-container>
-    <div class="user-data" *ngIf="isLoggedIn">
-      <img class="user-data__image" referrerpolicy="no-referrer" width="50" height="50" [src]="userData?.avatar"
-        alt="user avatar">
-      <a class="user-data__username" target="_blank" [href]="'https://imgur.com/user/'+userData?.url">
-        {{username}}
-      </a>
-    </div>
-    <div>
-      <ul class="mx-menu">
-        <li class="mx-menu__item"><a class="btn btn--text" [routerLink]="['/gallery']"
-            routerLinkActive="router-link-active">gallery</a></li>
-        <li class="mx-menu__item"><a class="btn btn--text" [routerLink]="['/albums']"
-            routerLinkActive=" router-link-active">albums</a></li>
-      </ul>
+    <div class="menu__items-wrapper">
+      <ng-container *ngIf="!isLoggedIn">
+        <button type="button" class="btn" (click)="login()">login</button>
+      </ng-container>
+      <ng-container *ngIf="isLoggedIn">
+        <div class="user-data">
+          <img class="user-data__image" referrerpolicy="no-referrer" width="50" height="50" [src]="userData?.avatar"
+            alt="user avatar">
+          <a class="user-data__username" target="_blank" [href]="'https://imgur.com/user/'+userData?.url">
+            {{username}}
+          </a>
+        </div>
+        <div>
+          <ul class="mx-menu">
+            <li class="mx-menu__item"><a class="btn btn--text" [routerLink]="['/gallery']"
+                routerLinkActive="router-link-active">gallery</a></li>
+            <li class="mx-menu__item"><a class="btn btn--text" [routerLink]="['/albums']"
+                routerLinkActive=" router-link-active">albums</a></li>
+          </ul>
+        </div>
+      </ng-container>
     </div>
   </nav>
   <main class="main-container">
