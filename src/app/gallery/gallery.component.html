@@ -2,9 +2,25 @@
   <p class="mx-gallery__count">{{imagesCounter()}} / {{imagesCount.data()?.data}}</p>
   <div class="mx-gallery__images">
     @for(image of images.data()?.data; track image.id; let idx = $index){
-    <div class="mx-gallery__image-wrapper">
-      <img priority="" [lightbox]="idx" class="mx-gallery__image" fill referrerpolicy="no-referrer"
-        [ngSrc]="image.link">
+    <div class="mx-gallery__card">
+      <div class="mx-gallery__image-wrapper">
+        <img priority="" [lightbox]="idx" [alt]="image.title ? image.title : ''" class="mx-gallery__image" fill
+          referrerpolicy="no-referrer" [ngSrc]="image.link">
+      </div>
+      <h2 class="mx-gallery__image-description">
+        @if(image.title){
+        {{image.title}}
+        }@else {
+        &dash;
+        }
+      </h2>
+      <p class="mx-gallery__image-description">
+        @if(image.description){
+        {{image.description}}
+        }@else {
+        &dash;
+        }
+      </p>
     </div>
     }
   </div>
