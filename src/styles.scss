@@ -135,6 +135,18 @@ p {
 
 }
 
+.mx-chip {
+  color: var(--gray-100);
+  font-weight: 700;
+  background-color: rgba(133, 20, 245, 0.7);
+  padding: 2px 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+}
+
 app-control-flow,
 app-signals,
 app-deferrable-views {
