@@ -7,6 +7,9 @@
         <img priority="" [lightbox]="idx" [alt]="image.title ? image.title : ''" class="mx-gallery__image" fill
           referrerpolicy="no-referrer" [ngSrc]="image.link">
       </div>
+      <div class="mx-gallery__views">
+        <mx-icon type="visibility"></mx-icon> {{image.views}}
+      </div>
       <h2 class="mx-gallery__image-description">
         @if(image.title){
         {{image.title}}

@@ -78,9 +78,8 @@ export class GalleryComponent {
 
   /**
    * TODO:
-   * show: images views, description, title, name, tags,
+   * show: images name, tags,
    * handle add to favorites,
-   * add alt,
    * show add date,
    */
 }
