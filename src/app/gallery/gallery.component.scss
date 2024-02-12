@@ -55,6 +55,12 @@
   gap: 4px;
 }
 
+.mx-gallery__views-date-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
 .mx-gallery__card {
   background-color: var(--gray-700);
   padding: 8px;

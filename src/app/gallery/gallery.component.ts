@@ -9,7 +9,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
+import { DatePipe, NgOptimizedImage } from '@angular/common';
 import { injectQuery } from '@tanstack/angular-query-experimental';
 import { SpinnerComponent } from '../spinner/spinner.component';
 import { LoadingErrorComponent } from '../loading-error/loading-error.component';
@@ -30,6 +30,7 @@ import { LightboxDirective } from 'ng-gallery/lightbox';
     IconComponent,
     QueryStateComponent,
     LightboxDirective,
+    DatePipe,
   ],
   providers: [ImagesService],
   standalone: true,
@@ -80,6 +81,5 @@ export class GalleryComponent {
    * TODO:
    * show: images tags,
    * handle add to favorites,
-   * show add date,
    */
 }
