@@ -11,7 +11,7 @@
         <div class="mx-gallery__views">
           <mx-icon type="visibility"></mx-icon> {{image.views}}
         </div>
-        <span class="mx-chip">{{image.datetime*1000 | date: 'dd.MM.yyyy'}}</span>
+        <span class="mx-chip">{{image.datetime*1000 | date: dateFormat}}</span>
       </div>
       <h2 class="mx-gallery__image-description">
         @if(image.title){
