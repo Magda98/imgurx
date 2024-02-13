@@ -17,6 +17,7 @@ import { IconComponent } from '../icon/icon.component';
 import { QueryStateComponent } from '../query-state/query-state.component';
 import { Gallery, GalleryItem, ImageItem } from 'ng-gallery';
 import { LightboxDirective } from 'ng-gallery/lightbox';
+import { SHORT_DATE_FORMAT } from '../shared/utils/date-format';
 
 @Component({
   selector: 'mx-gallery',
@@ -41,6 +42,7 @@ export class GalleryComponent {
   imagesService = inject(ImagesService);
   ngGallery = inject(Gallery);
   images = injectQuery(() => this.imagesService.getUserImages(this.page));
+  dateFormat = SHORT_DATE_FORMAT;
   public imagesCount = injectQuery(() => this.imagesService.getImagesCount());
   public maxPage = computed(() => {
     const data = this.imagesCount.data()?.data;
@@ -80,6 +82,6 @@ export class GalleryComponent {
   /**
    * TODO:
    * show: images tags,
-   * handle add to favorites,
+   * handle add/remove from favorites,
    */
 }
