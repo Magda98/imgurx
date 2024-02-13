@@ -1,6 +1,6 @@
 # imgurx
 
-This project is a web application built with Angular 17, leveraging the new Signals API for enhanced functionality. It utilizes the Angular Query library for powerful asynchronous state management in TypeScript.
+This project is a web application built with Angular 17, leveraging the new Signals API for enhanced functionality. Project is aiming to explore and learn the new Signals API and Angular Query library for asynchronous state management in TypeScript.
 App ueses [Imgur](https://imgur.com/) API.
 
 
@@ -17,3 +17,6 @@ App ueses [Imgur](https://imgur.com/) API.
 - View images details like: adding date, views, title, description
 - Browse user albums
 - View user basic data like avatar or nickname
+
+
+![image](https://github.com/Magda98/imgurx/assets/33430525/eef05738-5cfe-47bb-93a3-3b5891ae9ff8)
