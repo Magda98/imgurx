@@ -3,6 +3,8 @@
 This project is a web application built with Angular 17, leveraging the new Signals API for enhanced functionality. Project is aiming to explore and learn the new Signals API and Angular Query library for asynchronous state management in TypeScript.
 App ueses [Imgur](https://imgur.com/) API.
 
+deployment: https://magda98.github.io/imgurx/gallery
+
 
 ## Technologies
 - Angular 17
