@@ -21,4 +21,5 @@ deployment: https://magda98.github.io/imgurx/gallery
 - View user basic data like avatar or nickname
 
 
-![image](https://github.com/Magda98/imgurx/assets/33430525/eef05738-5cfe-47bb-93a3-3b5891ae9ff8)
+![image](https://github.com/Magda98/imgurx/assets/33430525/60e55c92-3653-48b6-9751-f679dbdef8fb)
+
