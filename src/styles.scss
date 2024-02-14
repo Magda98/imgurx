@@ -182,10 +182,17 @@ mx-quey-state {
     color: #fff;
   }
 
-  &.icon--large {
+  &.large {
     svg {
       width: 32px;
       height: 32px;
+    }
+  }
+
+  &.small {
+    svg {
+      width: 18px;
+      height: 18px;
     }
   }
 }
