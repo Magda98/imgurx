@@ -12,7 +12,7 @@
           <div class="mx-gallery__views">
             <mx-icon type="visibility"></mx-icon> {{image.views}}
           </div>
-            <button class="btn" (click)="toggleFavorite(image)">
+            <button class="btn" (click)="toggleFavoriteImage.mutate(image)">
             @if(image.favorite){
               <mx-icon iconSize="small" type="heart"></mx-icon> 
             } @else{

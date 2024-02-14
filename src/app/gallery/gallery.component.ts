@@ -56,7 +56,7 @@ export class GalleryComponent {
       ? this.page() * this.pageSize + currentPageSize
       : this.page() * this.pageSize;
   });
-  addToFavroties = injectMutation(() => ({
+  public toggleFavoriteImage = injectMutation(() => ({
     mutationFn: (image: Image) =>
       lastValueFrom(this.imagesService.addImageToFavorite(image.id))
   }))
@@ -85,13 +85,8 @@ export class GalleryComponent {
     this.page.update((v) => v - 1);
   }
 
-  toggleFavorite(image: Image){
-    this.addToFavroties.mutate(image)
-  }
-
   /**
    * TODO:
    * show: images tags,
-   * handle add/remove from favorites,
    */
 }
