@@ -8,10 +8,19 @@
           referrerpolicy="no-referrer" [ngSrc]="image.link">
       </div>
       <div class="mx-gallery__views-date-row">
-        <div class="mx-gallery__views">
-          <mx-icon type="visibility"></mx-icon> {{image.views}}
+        <div class="mx-gallery__icons">
+          <div class="mx-gallery__views">
+            <mx-icon type="visibility"></mx-icon> {{image.views}}
+          </div>
+          <div>
+            @if(image.favorite){
+              <mx-icon iconSize="small" type="heart"></mx-icon> 
+            } @else{
+              <mx-icon iconSize="small" type="heartOutline"></mx-icon> 
+            }
+          </div>
         </div>
-        <span class="mx-chip">{{image.datetime*1000 | date: dateFormat}}</span>
+        <span class="mx-gallery__added-date mx-chip">{{image.datetime*1000 | date: dateFormat}}</span>
       </div>
       <h2 class="mx-gallery__image-description">
         @if(image.title){

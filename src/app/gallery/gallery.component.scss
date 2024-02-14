@@ -38,6 +38,17 @@
   height: 100%;
 }
 
+.mx-gallery__icons{
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.mx-gallery__added-date{
+  font-size: 12px;
+}
+
 .mx-gallery__image-wrapper {
   position: relative;
   height: 200px;
