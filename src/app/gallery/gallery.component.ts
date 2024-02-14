@@ -10,7 +10,7 @@ import {
   signal,
 } from '@angular/core';
 import { DatePipe, NgOptimizedImage } from '@angular/common';
-import { injectQuery } from '@tanstack/angular-query-experimental';
+import { injectMutation, injectQuery } from '@tanstack/angular-query-experimental';
 import { SpinnerComponent } from '../spinner/spinner.component';
 import { LoadingErrorComponent } from '../loading-error/loading-error.component';
 import { IconComponent } from '../icon/icon.component';
@@ -18,6 +18,8 @@ import { QueryStateComponent } from '../query-state/query-state.component';
 import { Gallery, GalleryItem, ImageItem } from 'ng-gallery';
 import { LightboxDirective } from 'ng-gallery/lightbox';
 import { SHORT_DATE_FORMAT } from '../shared/utils/date-format';
+import { Image } from '../shared/interfaces/interfaces';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'mx-gallery',
@@ -54,6 +56,10 @@ export class GalleryComponent {
       ? this.page() * this.pageSize + currentPageSize
       : this.page() * this.pageSize;
   });
+  addToFavroties = injectMutation(() => ({
+    mutationFn: (image: Image) =>
+      lastValueFrom(this.imagesService.addImageToFavorite(image.id))
+  }))
 
   items: Signal<GalleryItem[]> = computed(() => {
     const images = this.images.data()?.data;
@@ -77,6 +83,10 @@ export class GalleryComponent {
 
   prevPage() {
     this.page.update((v) => v - 1);
+  }
+
+  toggleFavorite(image: Image){
+    this.addToFavroties.mutate(image)
   }
 
   /**

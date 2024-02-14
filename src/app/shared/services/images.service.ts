@@ -15,14 +15,14 @@ export class ImagesService {
   getUserImages(page: Signal<number>) {
     return createQuery(
       ['images', { page: page() }] as const,
-      this.#http.get<ApiResponse<Image[]>>(`/account/me/images/${page()}`)
+      this.#http.get<ApiResponse<Image[]>>(`account/me/images/${page()}`)
     );
   }
 
   getImagesCount() {
     return createQuery(
       ['imagesCount'] as const,
-      this.#http.get<ApiResponse<number>>(`/account/me/images/count`)
+      this.#http.get<ApiResponse<number>>(`account/me/images/count`)
     );
   }
 
@@ -33,5 +33,9 @@ export class ImagesService {
         `account/${this.#authService.username}/albums/${page()}`
       )
     );
+  }
+
+  addImageToFavorite(imageHash: string){
+    return this.#http.post<void>(`image/${imageHash}/favorite`, {})
   }
 }
