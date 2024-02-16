@@ -85,9 +85,4 @@ export class GalleryComponent {
   prevPage() {
     this.page.update((v) => v - 1);
   }
-
-  /**
-   * TODO:
-   * show: images tags,
-   */
 }
